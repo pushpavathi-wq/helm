@@ -3,3 +3,8 @@ deployment:
   imageVersion: stable-perl
 service:
   nodePort: 30007
+
+
+  # just like variable
+
+  

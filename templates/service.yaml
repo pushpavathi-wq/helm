@@ -1,16 +1,15 @@
-apiVersion: apps/v1
 kind: Service
-
+apiVersion: v1
 metadata:
-    name: nginx
-
+  name: nginx
 spec:
-    type: LoadBalancer
-    selector:
-        app: nginx
-
-    ports:
-    - protocol: tcp
-      port: 80
-      targetPort: 80        
-      nodePort: {{ .Values.service.nodePort }}
+  type: LoadBalancer
+  selector: # labels are used as selectors
+    app: nginx
+    tier: frontend
+    purpose: deployment
+  ports:
+  - protocol: TCP
+    port: 80 # service port
+    targetPort: 80
+    nodePort: {{ .Values.service.nodePort }} 
